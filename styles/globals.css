@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --orange: #2563EB;
+  --orange-light: #B0C4DE;
+  --amber: #FFFACD;
+  --cream: #F8F9FA;
+  --cream-dark: #E5E7EB;
+  --muted: #6B7280;
+  --light-border: #BFDBFE;
+  --text: #111827;
+  --card-bg: #FFFFFF;
+  --success: #4CAF50;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Love Ya Like A Sister', cursive;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  -webkit-appearance: none;
+}
+
+input[type="text"],
+input[type="number"] {
+  color: var(--text);
+  background: transparent;
+}
+
+input:focus {
+  outline: 2px solid var(--orange);
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.15s;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light-border);
+  border-radius: 2px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.25s ease both;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+/* Checkbox accent */
+input[type="checkbox"] {
+  accent-color: var(--orange);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
