@@ -198,9 +198,36 @@ function StepScan({ onParsed }) {
     if (!file) return
     const reader = new FileReader()
     reader.onload = ev => {
-      setPreview(ev.target.result)
-      setImgData({ base64: ev.target.result.split(',')[1], mimeType: file.type })
-      setError('')
+      const img = new Image()
+      img.onload = () => {
+        const MAX_DIM = 1200
+        let width = img.width
+        let height = img.height
+
+        if (width > height && width > MAX_DIM) {
+          height *= MAX_DIM / width
+          width = MAX_DIM
+        } else if (height > MAX_DIM) {
+          width *= MAX_DIM / height
+          height = MAX_DIM
+        }
+
+        const canvas = document.createElement('canvas')
+        canvas.width = width
+        canvas.height = height
+        const ctx = canvas.getContext('2d')
+
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        ctx.drawImage(img, 0, 0, width, height)
+
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.7)
+
+        setPreview(dataUrl)
+        setImgData({ base64: dataUrl.split(',')[1], mimeType: 'image/jpeg' })
+        setError('')
+      }
+      img.src = ev.target.result
     }
     reader.readAsDataURL(file)
   }
