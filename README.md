@@ -69,18 +69,8 @@ splitplate/
 ├── styles/
 │   └── globals.css      # Core theme variables, custom fonts, and web resets
 ├── package.json         # Node dependencies (Next.js, Google Gen AI SDK)
-├── setup.md             # 5-step quick deployment guide
 └── README.md            # You are here!
 ```
-
----
-
-## 🚀 deployment & local setup
-
-want to run splitplate locally or deploy it live for free on vercel? 
-
-we've written a super simple, step-by-step developer setup and hosting guide. check it out here:
-👉 **[setup & deployment instructions](./setup.md)**
 
 ---
 
