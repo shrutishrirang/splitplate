@@ -281,12 +281,11 @@ function StepScan({ onParsed }) {
         }
       </div>
 
-      {/* hidden file input — also opens camera on mobile */}
+      {/* hidden file input — shows camera + gallery options on mobile */}
       <input
         ref={fileref}
         type="file"
         accept="image/*"
-        capture="environment"
         style={{ display: 'none' }}
         onChange={handleFile}
       />
